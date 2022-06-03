@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="bg-dark text-light text-center p-2">
+    <img class="profile-pic rounded-circle p-0 my-2" src="{% static 'img/pacia.jpg' %}" alt="Profile picture" >
+    <h2>Witaj {{ user }}!</h2>
+    <p>Twoje ostatnie logowanie: {{ user.last_login }}</p>
+    <p>Konto aktywne od {{ user.date_joined }}</p>
+</section>
+
+{% endblock %}
+
