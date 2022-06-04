@@ -19,14 +19,12 @@ from movies import views
 from movies.views import MovieListView
 
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('movies/', views.movie_list, name="movie_list"),
-    path('accounts/', include("django.contrib.auth.urls")),
-    path('accounts/profile/', views.profile_view, name='user_profile'),
-    path('accounts/signup/', views.user_signup, name="user_signup"),
-    path('accounts/login/', include('django.contrib.auth.urls'), name='login'),
-    path('admin/', admin.site.urls),
-    path('about/', MovieListView.as_view()),
-]    
-
-
+    path("", views.index, name="index"),
+    path("movies/", views.movie_list, name="movie_list"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/profile/", views.profile_view, name="user_profile"),
+    path("accounts/signup/", views.user_signup, name="user_signup"),
+    path("accounts/login/", include("django.contrib.auth.urls"), name="login"),
+    path("admin/", admin.site.urls),
+    path("about/", MovieListView.as_view()),
+]

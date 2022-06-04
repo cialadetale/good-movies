@@ -7,22 +7,40 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('movies', '0002_director_alter_movie_options_and_more'),
+        ("movies", "0002_director_alter_movie_options_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Review',
+            name="Review",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('author', models.CharField(max_length=250, verbose_name='autor recenzji')),
-                ('content', models.TextField(verbose_name='treść recenzji')),
-                ('is_recommended', models.BooleanField(verbose_name='polecam innym')),
-                ('movie', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='movies.movie', verbose_name='recenzja filmu')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "author",
+                    models.CharField(max_length=250, verbose_name="autor recenzji"),
+                ),
+                ("content", models.TextField(verbose_name="treść recenzji")),
+                ("is_recommended", models.BooleanField(verbose_name="polecam innym")),
+                (
+                    "movie",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="movies.movie",
+                        verbose_name="recenzja filmu",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'recenzja',
-                'verbose_name_plural': 'recenzje',
+                "verbose_name": "recenzja",
+                "verbose_name_plural": "recenzje",
             },
         ),
     ]

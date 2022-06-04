@@ -7,47 +7,71 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('movies', '0001_initial'),
+        ("movies", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Director',
+            name="Director",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=100, verbose_name='imię')),
-                ('last_name', models.CharField(max_length=100, verbose_name='nazwisko')),
-                ('about', models.TextField(blank=True, verbose_name='o reżyserze')),
-                ('photo', models.ImageField(blank=True, upload_to='', verbose_name='zdjęcie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=100, verbose_name="imię")),
+                (
+                    "last_name",
+                    models.CharField(max_length=100, verbose_name="nazwisko"),
+                ),
+                ("about", models.TextField(blank=True, verbose_name="o reżyserze")),
+                (
+                    "photo",
+                    models.ImageField(blank=True, upload_to="", verbose_name="zdjęcie"),
+                ),
             ],
             options={
-                'verbose_name': 'reżyser',
-                'verbose_name_plural': 'reżyserzy',
-                'ordering': ['last_name', 'first_name'],
+                "verbose_name": "reżyser",
+                "verbose_name_plural": "reżyserzy",
+                "ordering": ["last_name", "first_name"],
             },
         ),
         migrations.AlterModelOptions(
-            name='movie',
-            options={'ordering': ['title'], 'verbose_name': 'film', 'verbose_name_plural': 'filmy'},
+            name="movie",
+            options={
+                "ordering": ["title"],
+                "verbose_name": "film",
+                "verbose_name_plural": "filmy",
+            },
         ),
         migrations.AlterField(
-            model_name='movie',
-            name='published_at',
-            field=models.DateField(verbose_name='data premiery'),
+            model_name="movie",
+            name="published_at",
+            field=models.DateField(verbose_name="data premiery"),
         ),
         migrations.AlterField(
-            model_name='movie',
-            name='short_description',
-            field=models.TextField(default='', verbose_name='opis'),
+            model_name="movie",
+            name="short_description",
+            field=models.TextField(default="", verbose_name="opis"),
         ),
         migrations.AlterField(
-            model_name='movie',
-            name='title',
-            field=models.CharField(max_length=100, verbose_name='tytuł'),
+            model_name="movie",
+            name="title",
+            field=models.CharField(max_length=100, verbose_name="tytuł"),
         ),
         migrations.AddField(
-            model_name='movie',
-            name='director',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='movies', to='movies.director', verbose_name='reżyser'),
+            model_name="movie",
+            name="director",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="movies",
+                to="movies.director",
+                verbose_name="reżyser",
+            ),
         ),
     ]

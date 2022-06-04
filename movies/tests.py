@@ -5,6 +5,7 @@ from .models import Movie
 
 # Create your tests here.
 
+
 class TestMovies(TestCase):
     def setUp(self):
         Movie.objects.create(title="test", published_at=datetime.now())
