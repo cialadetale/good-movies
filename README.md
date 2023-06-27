@@ -5,4 +5,5 @@ Includes:
 - CSS, HTML,
 - Python,
 - Django.
+
 During the course I have learned also Linux basics and UX/UI.
